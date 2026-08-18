@@ -1,6 +1,6 @@
 ---
 name: create-one-page-project-slide
-description: Turn a software project, workflow, SOP, product, or case study into a verified 16:9 one-page presentation slide covering pain points, solution, deployment model, and quantified impact. Use when Codex is asked to create a 一頁式投影片, project one-pager, solution overview, executive summary slide, case-study slide, before/after impact slide, or matching HTML, PNG, and editable SVG deliverables from a repository or project documents.
+description: Turn a software project, workflow, SOP, product, or case study into a verified 16:9 one-page presentation slide covering pain points, solution, deployment model, and quantified impact. Use when an agent is asked to create a 一頁式投影片, project one-pager, solution overview, executive summary slide, case-study slide, before/after impact slide, or matching HTML, PNG, and editable SVG deliverables from a repository or project documents.
 ---
 
 # Create One-Page Project Slide

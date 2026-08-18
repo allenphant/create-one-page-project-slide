@@ -1,6 +1,6 @@
-# Codex Skills
+# Agent Skills
 
-Reusable skills for Codex workflows.
+Reusable, agent-agnostic skills for repeatable workflows.
 
 ## `create-one-page-project-slide`
 
@@ -13,42 +13,37 @@ Turn a software project, workflow, SOP, product, or case study into a verified 1
 
 The skill can produce standalone HTML, 1920×1080 PNG, and editable native SVG deliverables.
 
-## Install in Codex
+## Install
 
-Recommended: open a new Codex conversation and paste this prompt:
-
-```text
-Please install the Codex skill from:
-https://github.com/allenphant/create-one-page-project-slide/tree/v0.1.1/skills/create-one-page-project-slide
-
-After installation, confirm that $create-one-page-project-slide is available.
-```
-
-## Manual install (no Python required)
+Clone the repository and copy the skill folder into the skill directory used by your agent:
 
 ```bash
-git clone --depth 1 --branch v0.1.1 \
+git clone --depth 1 --branch v0.2.0 \
   https://github.com/allenphant/create-one-page-project-slide.git \
   /tmp/create-one-page-project-slide
 
-SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills"
-mkdir -p "$SKILL_DIR"
 cp -R /tmp/create-one-page-project-slide/skills/create-one-page-project-slide \
-  "$SKILL_DIR/"
+  /path/to/your-agent/skills/
 ```
 
-Restart or open a new Codex conversation after installation.
+The exact skill directory is agent-specific. Replace `/path/to/your-agent/skills/` with the directory documented by your agent, then restart or open a new session.
+
+You can also ask your agent to install or load this skill from:
+
+```text
+Please load the create-one-page-project-slide skill from:
+https://github.com/allenphant/create-one-page-project-slide/tree/v0.2.0/skills/create-one-page-project-slide
+```
 
 ## Use
 
 ```text
-請使用 $create-one-page-project-slide，
-把目前專案整理成一頁式投影片，內容包含痛點、解法、部署型式與量化成效。
+Use the create-one-page-project-slide skill to turn this project into a one-page presentation covering pain points, solution, deployment model, and quantified impact.
 ```
 
 ## Validation
 
-The skill includes deterministic helpers for impact calculations and Chromium-based rendering. Codex validates the skill structure during installation and can run the bundled helpers when creating a slide.
+The skill includes deterministic helpers for impact calculations and Chromium-based rendering. Validate the `SKILL.md` structure with the validator provided by your agent ecosystem, then run the bundled helpers when creating a slide.
 
 ## License
 
