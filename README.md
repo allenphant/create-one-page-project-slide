@@ -19,7 +19,7 @@ Install the skill from this repository with the Codex skill installer:
 
 ```bash
 python3 /path/to/install-skill-from-github.py \
-  --repo allenphant/codex-skills \
+  --repo allenphant/create-one-page-project-slide \
   --path skills/create-one-page-project-slide
 ```
 
@@ -27,7 +27,7 @@ Or install a pinned release:
 
 ```bash
 python3 /path/to/install-skill-from-github.py \
-  --repo allenphant/codex-skills \
+  --repo allenphant/create-one-page-project-slide \
   --path skills/create-one-page-project-slide \
   --ref v0.1.0
 ```
