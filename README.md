@@ -11,7 +11,19 @@ Turn a software project, workflow, SOP, product, or case study into a verified 1
 - Deployment model
 - Quantified impact
 
-The skill can produce standalone HTML, 1920×1080 PNG, and editable native SVG deliverables.
+The default deliverables are standalone HTML, 1920×1080 PNG, and editable native SVG.
+
+### Optional editable PPTX
+
+An editable PowerPoint file is an optional output. It requires the `officecli` tool; HTML, PNG, and SVG do not.
+
+The skill does not install `officecli` automatically. If PPTX output is requested and `officecli` is missing, the agent should remind the user and wait for approval before changing the environment. After approval, install it with the official installer:
+
+```bash
+curl -fsSL https://d.officecli.ai/install.sh | bash
+```
+
+Once installed, the agent should create native editable PPTX objects, validate the file, and compare an Office-compatible render against the SVG/PNG reference. A structurally valid PPTX is not by itself proof of visual fidelity.
 
 ## Install
 
