@@ -124,6 +124,7 @@ Optional editable Office output:
 - If `officecli` is missing, do not install it automatically. Tell the user that editable PPTX generation requires `officecli`, provide the official installation command only as an option, and wait for approval before changing the environment.
 - If the user does not approve installation, continue with the HTML, PNG, and SVG deliverables when those formats satisfy the request; otherwise pause and explain that the PPTX portion is blocked.
 - When `officecli` is available, load its PPTX specialization, create native editable objects rather than a full-slide raster image, and run `officecli validate` plus a structural check for `Pictures: 0`.
+- After creating a PPTX, render it through an actual Office-compatible renderer when available and compare the full-slide result with the SVG/PNG reference. `validate`, object counts, and zero pictures do not prove visual fidelity. If no Office renderer is available, explicitly report that PPTX visual parity is unverified rather than implying the SVG render proves it.
 
 Render either HTML or SVG with:
 

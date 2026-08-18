@@ -208,6 +208,7 @@ SVG:
 - Do not align a step prefix by approximate x/y intuition. Use the target-card contract and check the rendered baseline visually.
 - For editable PPTX, do not translate an SVG text baseline directly into a textbox top coordinate. Use top-anchored text boxes, zero internal insets, an explicit installed font, and a small optical upward calibration; otherwise text will visibly drift downward while card geometry remains fixed.
 - Do not apply one vertical-anchor rule to every PPTX text box. Body lines near a surface bottom need explicit breathing room; compact pill/control text must use a text box matching the pill height with `valign=middle` and zero insets.
+- Do not treat a detector-clean PPTX as visually verified. Compare an actual Office-compatible render against the SVG/PNG reference; if the renderer is unavailable, label PPTX visual parity as unverified.
 - Do not let a card's title, body, or final control line lose its content inset. Preserve 26–32 px side padding and 18–24 px bottom breathing room.
 - Do not turn missing user feedback or missing KPI data into invented “impact” figures. Use current-stage mode and label unknowns explicitly.
 - Do not let a dark status rail become a second competing composition. It should explain readiness or validation status and reinforce the left-to-right transformation.
