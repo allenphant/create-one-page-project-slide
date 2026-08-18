@@ -69,6 +69,19 @@ Write for executives and customers. Remove code names, API names, database detai
 
 Read [references/layout-spec.md](references/layout-spec.md) before creating the visual.
 
+Use the locked baseline layout in that reference as the default. Do not invent a new card grid, impact-panel topology, or spacing rhythm unless the user explicitly requests a different visual direction. The baseline is intentionally low-freedom because repeatability matters more than novelty for this deliverable.
+
+Before drawing, freeze these decisions:
+
+- 1920×1080 canvas with 72 px outer safe margin and 16 px top brand bar.
+- Header at the top; left content column 1400 px wide; 32 px gap; right rail 344 px wide.
+- Left stack: current friction, target production chain, deployment/governance.
+- Target chain: four connected cards with a shared internal rhythm; use a brand-color text prefix (`01`, `02`, `03`, `04`) followed by the adjacent English label on one visual baseline. Do not use a standalone number circle by default.
+- Right rail: dark current-stage/status panel. Use a status/readiness panel when no verified before/after KPI exists; never force an impact metric panel with invented numbers.
+- Use a content-sized top-right capsule. Measure the label or widen the capsule; never let text overflow a fixed narrow pill.
+
+When the architecture includes chart/table data becoming narrative text through a language model, make that transformation explicit in the fourth solution step and in the right rail. Keep `metric ID`, source linkage, QA, and human approval visible so the model is not presented as an ungoverned black box.
+
 Use a 1920×1080, 16:9 canvas. Make the official tool name the main title; do not use the performance metric as the title.
 
 Default to the consultant-style layout in the reference:
@@ -81,6 +94,10 @@ Default to the consultant-style layout in the reference:
 Prefer larger typography and fewer words. Remove details before reducing font size.
 
 Use CSS/SVG shapes for cards, steps, arrows, and accents. Do not add decorative imagery unless it materially improves comprehension and matches provided brand assets.
+
+For solution cards, keep the step number as an independent brand-color text element immediately before the English label. This is the default across HTML, SVG, and editable PPTX because it is easier to align and avoids cross-renderer drift from vertically centered circle text.
+
+For editable PPTX, do not apply one vertical-anchor rule to every text box. Body lines near a surface bottom need explicit breathing room; compact pill/control text must use a text box matching the pill height with `valign=middle` and zero insets.
 
 ### 5. Produce versioned artifacts
 
@@ -122,6 +139,11 @@ Open the rendered PNG with an image-viewing tool and verify:
 - Brand color has sufficient contrast
 - Numbers and testimonial labels are accurate
 - No unnecessary footer, warning, or infrastructure noise remains
+- The locked layout contract is still intact after copy changes
+- Every card has a visible 26–32 px content inset and at least 18–24 px bottom breathing room
+- No capsule, card, or callout has text touching or exceeding its boundary
+- Step prefixes and their neighboring labels share a visual baseline
+- If a status panel is used, its heading, body, and callout have separate vertical zones rather than compressed baselines
 
 Fix discovered issues and re-render. Do not merely report them.
 
