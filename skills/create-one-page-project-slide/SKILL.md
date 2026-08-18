@@ -118,6 +118,13 @@ Requirements:
 - Do not use `<foreignObject>` merely to wrap the HTML
 - Preserve earlier versions; create `v2`, `v3`, and so on for material revisions
 
+Optional editable Office output:
+
+- If the user requests a `.pptx`, check whether `officecli` is already available before starting Office work.
+- If `officecli` is missing, do not install it automatically. Tell the user that editable PPTX generation requires `officecli`, provide the official installation command only as an option, and wait for approval before changing the environment.
+- If the user does not approve installation, continue with the HTML, PNG, and SVG deliverables when those formats satisfy the request; otherwise pause and explain that the PPTX portion is blocked.
+- When `officecli` is available, load its PPTX specialization, create native editable objects rather than a full-slide raster image, and run `officecli validate` plus a structural check for `Pictures: 0`.
+
 Render either HTML or SVG with:
 
 ```bash
