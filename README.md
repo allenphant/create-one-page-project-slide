@@ -13,24 +13,31 @@ Turn a software project, workflow, SOP, product, or case study into a verified 1
 
 The skill can produce standalone HTML, 1920×1080 PNG, and editable native SVG deliverables.
 
-## Install
+## Install in Codex
 
-Install the skill from this repository with the Codex skill installer:
+Recommended: open a new Codex conversation and paste this prompt:
 
-```bash
-python3 /path/to/install-skill-from-github.py \
-  --repo allenphant/create-one-page-project-slide \
-  --path skills/create-one-page-project-slide
+```text
+Please install the Codex skill from:
+https://github.com/allenphant/create-one-page-project-slide/tree/v0.1.1/skills/create-one-page-project-slide
+
+After installation, confirm that $create-one-page-project-slide is available.
 ```
 
-Or install a pinned release:
+## Manual install (no Python required)
 
 ```bash
-python3 /path/to/install-skill-from-github.py \
-  --repo allenphant/create-one-page-project-slide \
-  --path skills/create-one-page-project-slide \
-  --ref v0.1.0
+git clone --depth 1 --branch v0.1.1 \
+  https://github.com/allenphant/create-one-page-project-slide.git \
+  /tmp/create-one-page-project-slide
+
+SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills"
+mkdir -p "$SKILL_DIR"
+cp -R /tmp/create-one-page-project-slide/skills/create-one-page-project-slide \
+  "$SKILL_DIR/"
 ```
+
+Restart or open a new Codex conversation after installation.
 
 ## Use
 
@@ -41,12 +48,7 @@ python3 /path/to/install-skill-from-github.py \
 
 ## Validation
 
-The skill includes deterministic helpers for impact calculations and Chromium-based rendering. Validate the skill folder with:
-
-```bash
-python3 /path/to/skill-creator/scripts/quick_validate.py \
-  skills/create-one-page-project-slide
-```
+The skill includes deterministic helpers for impact calculations and Chromium-based rendering. Codex validates the skill structure during installation and can run the bundled helpers when creating a slide.
 
 ## License
 
