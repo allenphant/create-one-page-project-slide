@@ -85,6 +85,8 @@ Target-card contract:
 - Arrows sit in the gaps and are vertically centered around y=617.
 - Do not put the step prefix above, below, or materially offset from its neighboring label. Do not let title or body text hug the card edge.
 
+When authoring the editable PPTX at 960×540 pt, convert these 1920×1080 px coordinates with `px ÷ 2 = pt`; do not reuse the px values as points. The resulting card x positions are `52pt`, `219pt`, `386pt`, `553pt`, with widths `143pt`, `143pt`, `143pt`, `167pt` and `24pt` gaps. Verify that each card interval is non-overlapping and that each arrow is inside its gap before delivery.
+
 Right column, top to bottom:
 
 Use one of two modes:
@@ -206,6 +208,7 @@ SVG:
 - Do not use a fixed-width capsule whose label is longer than the capsule; size the shape from the text and right-align it to the safe margin.
 - Do not compress a callout so its last line sits close to the bottom border. Move the text up or increase the callout height.
 - Do not align a step prefix by approximate x/y intuition. Use the target-card contract and check the rendered baseline visually.
+- Do not translate 1920 px target-card coordinates directly into a 960 pt PPTX. That makes the card interval spacing inconsistent and can cause card 4 to overlap card 3. Use the explicit 52/219/386/553 pt positions and 24 pt gaps above, then verify non-overlap numerically.
 - For editable PPTX, do not translate an SVG text baseline directly into a textbox top coordinate. Use top-anchored text boxes, zero internal insets, an explicit installed font, and a small optical upward calibration; otherwise text will visibly drift downward while card geometry remains fixed.
 - Do not apply one vertical-anchor rule to every PPTX text box. Body lines near a surface bottom need explicit breathing room; compact pill/control text must use a text box matching the pill height with `valign=middle` and zero insets.
 - Do not treat a detector-clean PPTX as visually verified. Compare an actual Office-compatible render against the SVG/PNG reference; if the renderer is unavailable, label PPTX visual parity as unverified.

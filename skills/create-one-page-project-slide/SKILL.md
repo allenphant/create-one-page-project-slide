@@ -99,6 +99,19 @@ For solution cards, keep the step number as an independent brand-color text elem
 
 For editable PPTX, do not apply one vertical-anchor rule to every text box. Body lines near a surface bottom need explicit breathing room; compact pill/control text must use a text box matching the pill height with `valign=middle` and zero insets.
 
+#### PPTX coordinate conversion guard
+
+The locked layout contract is specified in 1920×1080 px, while the editable PPTX baseline is commonly authored at 960×540 pt. Do not copy the HTML/SVG card coordinates into PPTX points. Convert the target-card contract explicitly: `px ÷ 2 = pt`.
+
+For the standard 960×540 pt PPTX canvas, the four target cards must use:
+
+- card x positions: `52pt`, `219pt`, `386pt`, `553pt`
+- card widths: `143pt`, `143pt`, `143pt`, `167pt`
+- card gap: `24pt` between each card
+- arrow centers in the gaps: approximately `207pt`, `374pt`, `541pt`
+
+Before delivery, check the card intervals numerically. Card `n` must end before card `n+1` starts, every arrow must sit inside the corresponding gap, and the final card must end at or before the left-column boundary. A clean object count or HTML snapshot does not catch coordinate-conversion overlap; inspect the rendered chain and run this interval check after every PPTX revision.
+
 ### 5. Produce versioned artifacts
 
 Create all three deliverables:
