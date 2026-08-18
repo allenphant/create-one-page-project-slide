@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create One-Page Project Slide"
+  short_description: "Create verified one-page HTML, PNG, and SVG project slides"
+  default_prompt: "Use $create-one-page-project-slide to turn this project into a one-page slide covering pain points, solution, deployment, and quantified impact."
